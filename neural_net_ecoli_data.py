@@ -12,10 +12,30 @@ def parse_line(line: str) -> Tuple[List[float], List[float]]:
         tuple of input list and output list
     """
     tokens = line.split(",")
-    out = int(tokens[0])
+    print(tokens)
+    out = tokens[8].strip()
+    print(out)
+    if out == 'cp':
+        output = [0, 0, 0]
+    elif out == 'im':
+        output = [1, 0, 0]
+    elif out == 'imS':
+        output = [0, 1, 0]
+    elif out == 'imL':
+        output = [0, 0, 1]
+    elif out == 'imU':
+        output = [1, 1, 0]
+    elif out == 'om':
+        output = [1, 0, 1]
+    elif out == 'omL':
+        output = [0, 1, 1]
+    elif out == 'pp':
+        output = [1, 1, 1]
+    print(output)
+    
     output = [1 if out == 1 else 0.5 if out == 2 else 1]
 
-    inpt = [float(x) for x in tokens[1:]]
+    inpt = [float(x) for x in tokens[1:8]]
     return (inpt, output)
 
 
